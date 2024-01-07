@@ -1,0 +1,21 @@
+{
+  "name": "mailchimp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "source": "how-to-optimise-personalisation-and-win-over-gen-z.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "2.10.3",
+    "parcel": "latest"
+  },
+  "dependencies": {
+    "gsap": "^3.12.4",
+    "lottie-web": "^5.12.2",
+    "swiper": "^11.0.5"
+  }
+}
