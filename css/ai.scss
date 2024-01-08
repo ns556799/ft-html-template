@@ -1,5 +1,6 @@
 body {
-	background: #fffef4;
+
+	background: #FFFEF4;
 }
 
 .pc-hero:after {
@@ -12,6 +13,7 @@ main {
 		font-size: 16px;
 		font-style: normal;
 		font-weight: 400;
+		color: black;
 		@media only screen and (min-width: 768px) {
 			font-size: 19px;
 		}
@@ -32,7 +34,7 @@ h2 {
 // Hero Header
 .pc-hero {
 	position: relative;
-	background-color: #ff7345;
+	background-color: #FFA05E;
 	overflow: hidden;
 	margin-bottom: 5vh;
 	padding-bottom: 10%;
@@ -48,24 +50,11 @@ h2 {
 		position: relative;
 		z-index: 2;
 
-		&:after {
-			content: "";
-			position: absolute;
-			width: 120%;
-			height: 150%;
-			display: block;
-			top: 0;
-			left: -5%;
-			background-color: #ff7345;
-			z-index: -1;
-		}
 
 		@media only screen and (min-width: 768px) {
-			max-width: 50%;
-
-			&:after {
-				display: none;
-			}
+			max-width: 80%;
+			width: 100%;
+			padding-right: 10%;
 		}
 	}
 
@@ -95,8 +84,13 @@ h2 {
 			padding-top: 5%;
 
 			@media only screen and (min-width: 768px) {
-				font-size: 64px;
+				font-size: 44px;
 				padding-top: initial;
+			}
+
+
+			@media only screen and (min-width: 1000px) {
+				font-size: 64px;
 			}
 		}
 
@@ -109,34 +103,45 @@ h2 {
 			opacity: 0;
 
 			@media only screen and (min-width: 768px) {
+				font-size: 30px;
+			}
+
+
+			@media only screen and (min-width: 1000px) {
 				font-size: 36px;
 			}
 		}
 	}
 
-	.rotateImages {
+	.hero-image-cutout {
 		position: absolute;
-		max-width: 160%;
-		position: absolute;
-		top: 10px;
-		right: -50%;
-		transform: translateX(-16%);
+		top: 5%;
+		right: 0;
+		max-width: 60%;
+		visibility:visible;
+		opacity: 1;
 
 		@media only screen and (min-width: 768px) {
-			right: -50vw;
-			top: 0;
-			max-width: 70%;
-			transform: translateX(-25%) rotate(-5deg);
+			top: initial;
+			bottom: 0;
+			right: -11%;
 		}
 
-		img {
-			width: 100%;
+
+		@media only screen and (min-width: 768px) {
+			max-width: 40%;
+			bottom: 0;
+			right: -10%;
 		}
+
+	
 	}
+
 }
 
 .lottie {
 	margin: 50px 0;
+	min-height: 200px;
 	@media only screen and (min-width: 768px) {
 		margin: 70px 0;
 	}
@@ -158,6 +163,7 @@ h2 {
 
 .quote-block {
 	margin: 30px 0 40px 0;
+	color: black;
 	.quote {
 		font-family: "Bricolage Grotesque", sans-serif;
 		font-size: 28px;
@@ -226,6 +232,7 @@ h2 {
 		}
 	}
 	.item {
+		position: relative;
 		.slideContainer {
 			height: 100%;
 			overflow: hidden;
@@ -248,10 +255,13 @@ h2 {
 		cursor: pointer;
 		&[data-pos="one"] {
 			.slideContainer {
-				background: #ffa05e;
+				background: #FF7345;
 				padding: 20px 28px;
+				aspect-ratio: 1.1	;
 				@media only screen and (min-width: 768px) {
 					padding: 20px 40px;
+					aspect-ratio: initial;
+
 				}
 			}
 
@@ -273,30 +283,14 @@ h2 {
 				font-weight: 400;
 				line-height: 1.2;
 				@media only screen and (min-width: 768px) {
-					max-width: 55%;
-					flex-basis: 55%;
+				
 				}
 			}
-			.slideImage {
-				max-width: 100%;
-				flex-basis: 100%;
-				text-align: right;
+			.relatedImage {
+				position: absolute;
+				bottom: 0;
+				object-fit: contain;
 
-				img {
-					max-width: 50%;
-					transform: translate(28px, 28px);
-
-					@media only screen and (min-width: 768px) {
-						max-width: initial;
-						transform: initial;
-					}
-				}
-
-				@media only screen and (min-width: 768px) {
-					transform: translateX(40px);
-					max-width: 45%;
-					flex-basis: 45%;
-				}
 			}
 		}
 

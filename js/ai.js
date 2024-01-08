@@ -13,26 +13,19 @@ const heroTl = gsap.timeline();
 const heroTitle = document.querySelector(".pc-hero h1");
 const heroStandfirst = document.querySelector(".pc-hero .standfirst");
 
-const rImage = document.querySelector(".rotateImages");
+const heroImage = document.querySelector(".hero-image-cutout");
 
 heroTl
-  .to(heroTitle, 1, { autoAlpha: 1 })
-  .to(heroStandfirst, 1, { autoAlpha: 1 });
-
-var tween = gsap.to(rImage, 4, {
-  rotation: 360 * 2,
-  ease: Linear.easeNone,
-  paused: true,
-});
-
-gsap.fromTo(tween, 4, { progress: 0 }, { progress: 1, ease: Power4.easeInOut });
+  .to(heroTitle, 1, { autoAlpha: 1 }, "label")
+  .to(heroStandfirst, 1, { autoAlpha: 1 })
+  .from(heroImage, 1, { autoAlpha: 0, right: "-20%" }, "label");
 
 lottieContainers.forEach((container) => {
   const path = container.dataset.json;
   const state = window.getComputedStyle(container).display;
 
   if (state == "block") {
-    const anim = lottie.loadAnimation({
+    var animation1 = lottie.loadAnimation({
       container: container, // the dom element that will contain the animation
       renderer: "svg",
       loop: true,
@@ -40,7 +33,7 @@ lottieContainers.forEach((container) => {
       path: path, // the path to the animation json
     });
 
-    anim.addEventListener("DOMLoaded", (e) => {
+    animation1.addEventListener("DOMLoaded", function (e) {
       const test = gsap.timeline({
         scrollTrigger: {
           trigger: container,
@@ -53,6 +46,45 @@ lottieContainers.forEach((container) => {
           onLeaveBack: () => lottie.stop(),
         },
       });
+      console.log("element loaded");
     });
+
+    lottie.stop();
   }
+});
+
+// init Swiper:
+const swiper = new Swiper(".relatedContent .swiper", {
+  // configure Swiper to use modules
+  modules: [Navigation, Pagination],
+  slidesPerView: 1,
+  spaceBetween: 10,
+  breakpoints: {
+    640: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 0,
+    },
+    1024: {
+      slidesPerView: 2,
+      spaceBetween: 0,
+    },
+  },
+  pagination: {
+    el: ".relatedContent .swiper-pagination",
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: ".relatedContent.swiper-button-next",
+    prevEl: ".relatedContent .swiper-button-prev",
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".relatedContent .swiper-scrollbar",
+  },
 });
